@@ -1,0 +1,229 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Double-Entry Accounting</title>
+  <link rel="icon" href="acc.jpg" type="image/jpeg">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+    div#body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      white-space: nowrap;
+      overflow: auto;
+      display: flex;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 20%; /* Adjust this width based on your content */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      width: 600px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Double-Entry Accounting System<span>  <a href="/new" style="color: white;text-decoration:none;"><button style="width:auto">New</button></a> <a href="/pandl" style="color: white;text-decoration:none;"><button style="width:auto">Profit and Loss Account</button></a> <a href="/balsheet" style="color: white;text-decoration:none;"><button style="width:auto">Balance Sheet</button></a><a href="/cashf" style="color: white;text-decoration:none;margin-left:10px;"><button style="width:auto">Cash Flow Statement</button></a>
+  </span></h1>
+
+
+
+  <h2>Transaction</h2>
+  <div id="body">
+  <form action="/add-transaction" method="post">
+    <label for="debitAccount">Debit Account:</label>
+    <input type="text" id="debitAccount" name="debitAccount" required placeholder="0001"><br>
+
+    <label for="creditAccount">Credit Account:</label>
+    <input type="text" id="creditAccount" name="creditAccount" required placeholder="0001"><br>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" step="0.01" required placeholder="0.00"><br>
+
+    <button type="submit">Add Transaction</button>
+  </form>
+
+  <form action="/add-transaction1" method="post">
+    <label for="debitAccount">Inventory:</label>
+    <input type="text" id="debitAccount" name="debitAccount" required><br>
+
+    <label for="creditAccount">Payable:</label>
+    <input type="text" id="creditAccount" name="creditAccount" required><br>
+
+    <button type="submit">Add Transaction</button>
+  </form>
+  <form action="/add-transaction2" method="post">
+    <label for="debitAccount">Sales:</label>
+    <input type="text" id="debitAccount" name="debitAccount" required><br>
+
+    <label for="creditAccount">Receivable:</label>
+    <input type="text" id="creditAccount" name="creditAccount" required><br>
+
+    <button type="submit">Add Transaction</button>
+  </form>
+  <form action="/add-transaction3" method="post">
+    <label for="debitAccount">Purchase:</label>
+    <input type="text" id="debitAccount" name="debitAccount" required><br>
+
+    <label for="creditAccount">Asset:</label>
+    <input type="text" id="creditAccount" name="creditAccount" required><br>
+
+    <button type="submit">Add Transaction</button>
+  </form>
+  <form action="/add-transaction4" method="post">
+    <label for="debitAccount">Cash:</label>
+    <input type="text" id="debitAccount" name="debitAccount" required><br>
+
+    <label for="creditAccount">Payable:</label>
+    <input type="text" id="creditAccount" name="creditAccount" required><br>
+
+    <button type="submit">Add Transaction</button>
+  </form>
+  <form action="/add-transaction5" method="post">
+    <label for="debitAccount">Cash:</label>
+    <input type="text" id="debitAccount" name="debitAccount" required><br>
+
+    <label for="creditAccount">Receivable:</label>
+    <input type="text" id="creditAccount" name="creditAccount" required><br>
+
+    <button type="submit">Add Transaction</button>
+  </form>
+  <form action="/add-transaction6" method="post">
+    <label for="debitAccount">Cash:</label>
+    <input type="text" id="debitAccount" name="debitAccount" required><br>
+
+    <label for="creditAccount">Equity:</label>
+    <input type="text" id="creditAccount" name="creditAccount" required><br>
+
+    <button type="submit">Add Transaction</button>
+  </form>
+  <form action="/add-transaction7" method="post">
+    <label for="debitAccount">Cash:</label>
+    <input type="text" id="debitAccount" name="debitAccount" required><br>
+
+    <label for="creditAccount">Loan Payable:</label>
+    <input type="text" id="creditAccount" name="creditAccount" required><br>
+
+    <button type="submit">Add Transaction</button>
+  </form>
+  <form action="/add-transaction8" method="post">
+    <label for="debitAccount">Cash:</label>
+    <input type="text" id="debitAccount" name="debitAccount" required><br>
+
+    <label for="creditAccount">Dividends:</label>
+    <input type="text" id="creditAccount" name="creditAccount" required><br>
+
+    <button type="submit">Add Transaction</button>
+  </form>
+  <form action="/add-transaction9" method="post">
+    <label for="debitAccount">Cash:</label>
+    <input type="text" id="debitAccount" name="debitAccount" required><br>
+
+    <label for="creditAccount">Rent Expense:</label>
+    <input type="text" id="creditAccount" name="creditAccount" required><br>
+
+    <button type="submit">Add Transaction</button>
+  </form>
+</div>
+
+<% if (Object.keys(accounts).length > 0) { %>
+  <h2>Accounts</h2>
+  <label for="searchInput">Search:</label>
+  <input type="text" id="searchInput" oninput="searchAccounts()" placeholder="Type to search" style="width: 20%;">
+
+  <table>
+      <thead>
+      <tr>
+          <th>Code</th>
+          <th>Account</th>
+          <th>Balance</th>
+      </tr>
+      </thead>
+      <tbody id="accountTableBody">
+      <% Object.keys(accounts).forEach(account => { %>
+          <tr>
+              <td><%= accounts[account].code || '' %></td>
+              <td><%= accounts[account].account_name ? accounts[account].account_name.replace(/_/g, ' ') : '' %></td>
+              <td><%= accounts[account].balance ? accounts[account].balance.toFixed(2) : '' %></td>
+          </tr>
+      <% }); %>
+      </tbody>
+  </table>
+<% } else { %>
+  <p>No accounts added yet.</p>
+<% } %>
+
+<script>
+  function searchAccounts() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const tableBody = document.getElementById('accountTableBody');
+      const rows = tableBody.getElementsByTagName('tr');
+
+      for (let i = 0; i < rows.length; i++) {
+          const code = rows[i].getElementsByTagName('td')[0].innerText.toLowerCase();
+          const accountName = rows[i].getElementsByTagName('td')[1].innerText.toLowerCase();
+          const balance = rows[i].getElementsByTagName('td')[2].innerText.toLowerCase();
+
+          const match = code.includes(searchInput) || accountName.includes(searchInput) || balance.includes(searchInput);
+
+          rows[i].style.display = match ? '' : 'none';
+      }
+  }
+</script>
+
+  <% if (req.query.error) { %>
+    <p style="color: red;"><%= req.query.error %></p>
+  <% } %>
+
+  <div style="width:fit-content;background-color:aquamarine;font-size:larger">
+    <p style="<%= (type2Sum == type1Sum) ? 'color:green' : 'color:red' %>">
+      Assets <%= type1Sum %> = Liability <%= type2Sum %>
+    </p>
+      </div>
+</body>
+</html>

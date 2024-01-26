@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+
+}
+th{
+    text-align:left;
+}
+</style>
+</head>
+<body>
+
+<h2>Balance Sheet</h2>
+<p>Calcuation based on provided data.</p>
+
+<table style="width:50%">
+    <caption><h2>Balance Sheet</h2></caption>
+  <tr>
+    <th style="border: none; border-color: white;justify-content:left;text-align:left">Assets</th>
+    <td>Rs.</td>
+  </tr>
+  <tr>
+    <td>Current Assets</td>
+    <td id="1">1000000.00</td>
+  </tr>
+  <tr>
+    <td>LT Investment & Funds</td>
+    <td id="2">800000.00</td>
+  </tr>
+  <tr>
+    <td>Property, Plant & Equip</td>
+    <td id="3">100000.00</td>
+  </tr>
+  <tr style="border: none; border-color: white;justify-content:left;text-align:left">
+    <td>Intangible Assets</td>
+    <td id="4">10000.00</td>
+</tr>
+  <tr>
+    <td>Other Assets</td>
+    <td id="5">10000</td>
+  </tr>
+  <tr>
+    <th>Total Assets</th>
+    <th id="toasset"></th>
+  </tr>
+  <tr>
+    <th colspan="2">Liabilities</th>
+
+  </tr>
+  <tr>
+    <td>Current Liabilities</td>
+    <td id="l1">10000</td>
+  </tr>
+  <tr>
+    <td>Long Term Liabilities</td>
+    <td id="l2">10000</td>
+  </tr>
+  <tr>
+    <th>Total Liabilities</th>
+    <th id="l3"></th>
+  </tr>
+  <tr>
+    <th colspan="2">Owners Equity</th>
+
+  </tr>
+  <tr>
+    <td>Contributed Capital</td>
+    <td id="e1">10000</td>
+  </tr>
+  <tr>
+    <td>Retained Earnings</td>
+    <td id="e2">10000</td>
+  </tr>
+  <tr>
+    <th>Total Owners Equity</th>
+    <th id="e3"></th>
+  </tr>
+
+</table>
+
+<script>
+    let ca = parseFloat(document.getElementById("1").innerText);
+    let lt = parseFloat(document.getElementById("2").innerText);
+    let ppe = parseFloat(document.getElementById("3").innerText);
+    let ia = parseFloat(document.getElementById("4").innerText);
+    let oa = parseFloat(document.getElementById("5").innerText);
+
+    let totalAssets = ca + lt+ppe+ia+oa;
+    let toa = document.getElementById("toasset");
+    toa.innerText = totalAssets.toFixed(2);
+
+
+    let cl = parseFloat(document.getElementById("l1").innerText);
+    let ltl = parseFloat(document.getElementById("l2").innerText);
+
+    let totalLiability = cl + ltl;
+    let to = document.getElementById("l3");
+    to.innerText = totalLiability.toFixed(2);
+
+
+    let cc = parseFloat(document.getElementById("e1").innerText);
+    let re = parseFloat(document.getElementById("e2").innerText);
+
+    let toli = cc + re;
+    let tolia = document.getElementById("e3");
+    tolia.innerText = toli.toFixed(2);
+
+</script>
+</body>
+</html>
+
